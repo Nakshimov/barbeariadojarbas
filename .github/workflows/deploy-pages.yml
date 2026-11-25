@@ -3,8 +3,6 @@ name: Publicar o site no GitHub Pages
 on:
   push:
     branches: ["main"]
-    paths-ignore:
-      - ".github/workflows/**"
   workflow_dispatch:
 
 permissions:
@@ -21,6 +19,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: read
       pages: write
       id-token: write
